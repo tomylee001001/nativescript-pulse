@@ -50,11 +50,9 @@ export class Pulse extends ContentView {
    * DEFAULT_COLOR = Color.rgb(0, 116, 193);
    */
   set pulse_color(value: string) {
-    console.log(value);
     this._color = new Color(value).android;
     if (this._android) {
       this._android.setColor(this._color);
-      console.log("sdad");
     }
   }
 
@@ -68,20 +66,8 @@ export class Pulse extends ContentView {
     this._android = new pl.bclogic.pulsator4droid.library.PulsatorLayout(this._context);
     try {
 
-      /*  this.color_ = 16409535;
-      if (!this._count)
-        this._count = this._android.getCount();
-      if (!this._duration)
-        this._duration = this._android.getDuration();
-        if(!this._interpolarator)
-          this._interpolarator=this._android.getInterpolator();*/
       this._android.start();
 
-    /*  if (this._count)
-        this._android.setCount(this._count);
-      if (this._color)
-        this._android.setColor(this._color);*/
-      // this.color_ =new Color("#fa63bf").android;
     } catch (error) {
       console.log("error : " + error);
     }
